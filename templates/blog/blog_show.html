@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ blog.caption }}
+{% endblock %}
+
+{% block bodyContent %}
+    <div class="span9">
+        <h4>{{ blog.caption }}</h4>
+        {{ blog.publish_time|date:"Y-m-d H:i:s" }} by <strong>{{ blog.author }}</strong>
+
+        <p class="muted">
+            <em>Tags:</em>
+            {% for tag in blog.tags.all %}
+                <i class="icon-tag"> </i><em>{{ tag }}</em>
+            {% endfor %}
+        </p>
+    <pre>
+            {% load markup %}
+            {{ blog.content | markdown:'codehilite' }}
+    </pre>
+    <p id="editBlog">
+        <input id="edit_blog_id" type="hidden" value="{{ blog.id }}">
+        <button id="edit" class="btn btn-small" type="button">编辑该文章</button>
+    </p>
+    <p><strong>评论：</strong></p>
+    <pre>
+    {{ blog.comment }}
+    </pre>
+    </div>
+    {% include "blog/blog_rightPart.html" %}
+{% endblock %}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title> {% block title %}首页{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/code.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    {#    <link href="/static/css/prettify.css" rel="stylesheet">#}
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <!--[if lt IE 9]>
+      <script src="static/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <ul class="nav">
+                <li class="active">
+                    <a class="brand" href="/">
+                        <strong>明朝梦呓</strong>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="/">首页</a>
+                    </li>
+                    <li class="">
+                        <a href="/blog">博客</a>
+                    </li>
+                    <li class="">
+                        <a href="/lab">实验室</a>
+                    </li>
+                    <li class="">
+                        <a href="/about">关于我</a>
+                    </li>
+                    <li>
+                        <a class="" href="/admin" target="_blank">后台管理</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        {% block bandContent %}
+            <br/><br/>
+        {% endblock %}
+    </div>
+</header>
+<div class="row-fluid">
+    <div class="span12">
+        <div></div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div id="leftContent" class="span2 sidebar-nav">
+                    <!--Sidebar content-->
+                    {% block leftContent %}{% endblock %}
+                </div>
+                <div id="bodyContent" class="span8 well well-large row-fluid">
+                    {% block bodyContent %}
+                        <div class="span1"></div>
+                        <div id="myCarousel" class="carousel slide span10 well">
+                            <div class="carousel-inner">
+                                <div class="active item">
+                                    <img class="baseCarousel" src="/static/images/dog1.jpg">
+                                </div>
+                                <div class="item">
+                                    <img class="baseCarousel" src="/static/images/dog2.jpg">
+                                </div>
+                                <div class="item">
+                                    <img class="baseCarousel" src="/static/images/dog3.jpg">
+                                </div>
+                            </div>
+                            <!-- Carousel nav -->
+                            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                        </div>
+                        <div class="span1"></div>
+                    {% endblock %}
+                    <!--Body content-->
+                </div>
+                <div id="rightContent" class="span2">
+                    {% block rightContent %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <br/>
+</div>
+<footer class="modal-footer">
+    <div class="container">
+        <p>
+            Copyright ©2013 Brooke. | All rights reserved. | <a href="mailto:smart1314@yeah.net">Contact Me</a>
+        </p>
+
+        <p>自古美人如名将，不许英雄见白头</p>
+    </div>
+</footer>
+
+<!-- Load JS here for greater good =============================-->
+<script src="/static/js/jquery-1.8.2.min.js"></script>
+<script src="/static/js/jquery-ui-1.10.0.custom.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.dropkick-1.0.0.js"></script>
+<script src="/static/js/custom_checkbox_and_radio.js"></script>
+<script src="/static/js/custom_radio.js"></script>
+<script src="/static/js/jquery.tagsinput.js"></script>
+<script src="/static/js/bootstrap-tooltip.js"></script>
+<script src="/static/js/jquery.placeholder.js"></script>
+<script src="/static/js/application.js"></script>
+<script src="/static/js/prettify.js"></script>
+<!--[if lt IE 8]>
+      <script src="/static/js/icon-font-ie7.js"></script>
+      <script src="/static/js/icon-font-ie7-24.js"></script>
+    <![endif]-->
+</body>
+</html>

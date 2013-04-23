@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} 发表文章 {% endblock %}
+
+{% block bodyContent %}
+    <div class="span9 well">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="input-prepend">
+                {% if form.caption.errors %}
+                    <div class="alert alert-error">
+                        {{ form.caption.errors }}
+                    </div>
+                {% endif %}
+                <span class="add-on">标题:</span>
+                {{ form.caption }}
+            </div>
+            <div class="input-prepend">
+                <span class="add-on">Tag:</span>
+                <input type="text">
+            </div>
+            <div class="well">
+                {% if form.content.errors %}
+                    <div class="alert alert-error">
+                        {{ form.content.errors }}
+                    </div>
+                {% endif %}
+                {{ form.content }}
+            </div>
+            <div class="form-actions">
+                <input class="btn btn-primary" type="submit" value="保存">
+            </div>
+        </form>
+    </div>
+    {% include "blog/blog_rightPart.html" %}
+{% endblock %}
+

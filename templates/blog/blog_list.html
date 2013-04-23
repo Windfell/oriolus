@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+    日志
+{% endblock %}
+
+{% block bodyContent %}
+    <div class="span9 row-fluid">
+        {% include "blog/blog_toolbar.html" %}
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr class="success">
+                <th></th>
+                <th>文章名称</th>
+                <th>发表时间</th>
+                <th>作者</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody class=":nth-child">
+            {% for post in posts %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>
+                        <a href="{% url 'detailblog' post.id %}">{{ post.caption }}</a>
+                    </td>
+                    <td>
+                        <i class="icon-time"></i>
+                        <small> {{ post.publish_time|date:"Y-m-d H:i:s" }}
+                    </td>
+                    <td>
+                        <i class="icon-user"></i>
+                        <small>{{ post.author }}</small>
+                    </td>
+                    <td>
+                        <a href="{% url 'deleteblog' post.id %}">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination pagination-centered">
+            <ul>
+                <li ><a href="/blog/page/{{ pre }}">Prev</a></li>
+{#                <li class="active"><a href="/blog/page/1">1</a></li>#}
+{#                <li><a href="/blog/page/2">2</a></li>#}
+{#                <li><a href="/blog/page/3">3</a></li>#}
+{#                <li><a href="/blog/page/4">4</a></li>#}
+{#                <li><a href="/blog/page/5">5</a></li>#}
+                <li><a href="/blog/page/{{ next }}">Next</a></li>
+            </ul>
+        </div>
+    </div>
+    {% include "blog/blog_rightPart.html" %}
+{% endblock %}

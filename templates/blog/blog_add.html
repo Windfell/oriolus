@@ -3,10 +3,10 @@
 {% block title %} 发表文章 {% endblock %}
 
 {% block bodyContent %}
-    <div class="span9 well">
+    <div class="span9 well row-fluid">
         <form action="" method="post">
             {% csrf_token %}
-            <div class="input-prepend">
+            <div class="input-prepend row-fluid">
                 {% if form.caption.errors %}
                     <div class="alert alert-error">
                         {{ form.caption.errors }}
@@ -15,8 +15,8 @@
                 <span class="add-on">标题:</span>
                 {{ form.caption }}
             </div>
-            <div class="input-prepend">
-                <span class="add-on">Tag:</span>
+            <div class="input-prepend row-fluid">
+                <span class="add-on">标签:</span>
                 <input type="text">
             </div>
             <div class="well">

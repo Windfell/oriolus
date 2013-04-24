@@ -52,6 +52,6 @@ body {
 }
 
 #id_content {
-    height: 280px;
-    width: 550px;
+    width: 100%;
+    *zoom: 1;
 }

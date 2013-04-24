@@ -12,6 +12,9 @@ urlpatterns = patterns('',
     url(r'^lab$', current_time),
     url('^lab/time/$', current_time),
 
+    #login and logout
+    url(r'^accounts/login/(?P<next>\.+)/$', 'base.views.login'),
+
     #static files
     url( r'^static/(?P<path>.*)$', 'django.views.static.serve',{ 'document_root': settings.STATIC_ROOT }),
 
